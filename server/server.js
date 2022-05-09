@@ -13,8 +13,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Set up Auth0 configuration
 const authConfig = {
-  domain: "YOUR-DOMAIN",
-  audience: "YOUR-IDENTIFIER"
+  domain: "tropee-interview.eu.auth0.com",
+  audience: "https://interview.tropee.com"
 };
 
 // Create middleware to validate the JWT using express-jwt
@@ -34,7 +34,7 @@ const checkJwt = jwt({
 });
 
 // mock data to send to our frontend
-let events = [
+const events = [
   {
     id: 1,
     name: "Charity Ball",
@@ -79,6 +79,30 @@ app.get("/events/:id", checkJwt, (req, res) => {
 app.get("/", (req, res) => {
   res.send(`Hi! Server is listening on port ${port}`);
 });
+
+app.post("/events", (req, res) => {
+  if (!req.body.name || req.body.name.length < 3) {
+    return res.json({error: 'name is to short'})
+  }
+  if (!['Adoptions', 'Fundraising'].includes(req.body.category)) {
+    return res.json({error: 'Invalid category'})
+  }
+  const event = {
+    id: events.length + 1,
+    name: req.body.name,
+    category: req.body.category,
+    description:
+      "Come to our donation drive to help us replenish our stock of pet food, toys, bedding, etc. We will have live bands, games, food trucks, and much more.",
+    featuredImage: "https://placekitten.com/500/500",
+    images: ["https://placekitten.com/500/500"],
+    location: "1234 Dog Alley",
+    date: "11-21-2019",
+    time: "12:00"
+  }
+  events.push(event)
+  
+  return res.json(event)
+})
 
 // listen on the port
 app.listen(port);
