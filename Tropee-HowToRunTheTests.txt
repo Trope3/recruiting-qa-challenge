@@ -1,0 +1,29 @@
+The first thing to do in this particluar case is to start the application in your local computer. Follow these instractions to start the app:
+
+1) Launch your window cmd console and cd to the following folder <<CHOSEN FOLDER LOCATION>>\Docker\recruiting-qa-challenge-master
+2) Run the command "docker-compose up" to start the app
+
+3) cd to the client "package.json" file location folder <<CHOSEN FOLDER LOCATION>>\Docker\recruiting-qa-challenge-master\client
+3) Run the following command to start the client "npm run serve"
+
+Now to test the application, I decided to use a test framework called Cypress. Watch this video to install and setup Cypress in your local machine 
+=> https://www.youtube.com/watch?v=F53rDUwiAbU&list=PLUDwpEzHYYLu4jKg-rNSKH3aJeBinlPXp&index=3
+
+Once Cypress is set up in your local computer, move the "TropeeAutomatedTests.js" file to the following folder, <<Your Cypress FOLDER PROJECT>>\cypress\integration\examples. 
+In case the "examples" folder doesn´t exist, move the "TropeeAutomatedTests.js" file to the <<Your Cypress FOLDER PROJECT>>\cypress\integration\ folder
+
+Then Copy and paste these Json keys in the cypress.json file:
+
+{
+    "chromeWebSecurity": false,
+    "videoCompression": 15
+}
+
+
+How to run the Test Cases
+
+1) Open Visual Studio Code
+2) Select your <<Cypress Project>> folder
+3) Run the following command to launch the Test Runner console -> .\node_modules\.bin\cypress open
+4) After a couple of seconds, when the Test runner console is shown in the screen, click on "TropeeAutomatedTests.js"
+5) The test results will be displayed in the Test Runner console
