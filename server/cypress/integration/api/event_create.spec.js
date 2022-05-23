@@ -1,6 +1,6 @@
 describe('event creation endpoint', () => {
     
-    it('creates event - POST', () => {
+    it.only('creates event - POST', () => {
         cy.request('/events').as('getEvents');
             //create event
             cy.request({
@@ -10,12 +10,14 @@ describe('event creation endpoint', () => {
                     "name": "Help the kittens", 
                     "category": "Adoptions" 
                 }
+            }).then((response) => {
+                expect(response.status).to.eq(200);
             })
         
         // verify event on listing page
         cy.get('@getEvents').then(eventDetails => {
             expect(eventDetails.status).to.eq(200);
-            expect(eventDetails.body).has.property("name", "Help the kittens");
+            expect(eventDetails.body).to.containSubset([{name: 'Help the kittens'}]);
         });
     });
 

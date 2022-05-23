@@ -20,6 +20,7 @@
         "nodemon": "^2.0.6"
     },
     "devDependencies": {
+        "chai-subset": "^1.6.0",
         "cypress": "^9.6.1"
     }
 }
