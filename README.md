@@ -29,3 +29,11 @@ Name has to be at least 3 characters and category can be one of the values `Adop
 ## How to run the application
 
 `docker-compose up`
+
+## How to run the frontend tests
+* `npm run cy:run`
+  * Runs the Cypress tests on the command line
+
+* `npm run cy:open`
+  * Runs the Cypress test runner so you can develop & see your tests run live 
+
