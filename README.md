@@ -29,3 +29,15 @@ Name has to be at least 3 characters and category can be one of the values `Adop
 ## How to run the application
 
 `docker-compose up`
+
+## How to run Cypress tests
+To run frontend tests run the below copmmands from the `client` folder of the repo.
+
+To run the backend tests run the below commands from the `server` folder of the repo.
+
+* `npm run cy:run`
+  * Runs the Cypress tests on the command line
+
+* `npm run cy:open`
+  * Runs the Cypress test runner so you can develop & see your tests run live 
+

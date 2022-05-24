@@ -1,0 +1,7 @@
+{
+"pluginsFile": "cypress/plugins/index.js",
+"supportFile": "cypress/support/index.js",
+"baseUrl" : "http://localhost:8000",
+"experimentalSessionAndOrigin" : true,
+"defaultCommandTimeout": 30000
+}
