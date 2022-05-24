@@ -49,7 +49,7 @@ describe('event creation endpoint', () => {
         })
     });
 
-    it('sends empty body to the creaate events endpoint', () => {
+    it('sends empty body to the create events endpoint', () => {
         cy.request({
             method : 'POST', 
             url : '/events/', 
@@ -59,7 +59,7 @@ describe('event creation endpoint', () => {
             })
     });
 
-    it('sends unknown key pair values to the creaate events endpoint', () => {
+    it('sends unknown key pair values to the create events endpoint', () => {
         cy.request({
             method : 'POST', 
             url : '/events/', 
